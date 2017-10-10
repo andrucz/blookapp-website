@@ -52,8 +52,14 @@ const messages = {
   }
 };
 
+const browserLanguagePropertyKeys = ['language', 'browserLanguage', 'userLanguage', 'systemLanguage'];
+const browserLanguages = browserLanguagePropertyKeys
+  .map(key => window.navigator[key])
+  .filter(value => typeof value === 'string')
+  .map(value => value.substr(0, 2));
+
 const i18n = new VueI18n({
-  locale: 'en',
+  locale: browserLanguages[0],
   fallbackLocale: 'en',
   messages
 });
