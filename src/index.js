@@ -31,37 +31,19 @@ const router = new VueRouter({
   ]
 });
 
-const messages = {
-  en: {
-    comingSoon: 'Coming soon',
-    slogan: 'Connecting readers.',
-    donateSellSwapFeatureTitle: 'Donate, sell or swap your books',
-    donateSellSwapFeatureDescription: 'With the help of features like barcode scanner, easily insert your books into the application so interested readers can find them.',
-    findBooksFeatureTitle: 'Find the books you love',
-    findBooksFeatureDescription: 'With Blook search features, it\'s easy to find cool books next to you. Filter results based on genre, title, author, price and distance.',
-    footerMessage: '♥ from the Blook team'
-  },
-  pt: {
-    comingSoon: 'Em breve',
-    slogan: 'Conectando leitores.',
-    donateSellSwapFeatureTitle: 'Doe, venda ou troque seus livros',
-    donateSellSwapFeatureDescription: 'Com ajuda de recursos como leitor de código de barras ISBN, insira facilmente os seus livros no aplicativo para que leitores interessados encontre-os.',
-    findBooksFeatureTitle: 'Encontre os livros que você ama',
-    findBooksFeatureDescription: 'Com os recursos de pesquisa do Blook, é fácil encontrar livros legais perto de você. Filtre os resultados por gênero, título, autor, preço e distância.',
-    footerMessage: '♥ da equipe Blook'
-  }
-};
-
 const browserLanguagePropertyKeys = ['language', 'browserLanguage', 'userLanguage', 'systemLanguage'];
-const browserLanguages = browserLanguagePropertyKeys
+const browserLanguage = browserLanguagePropertyKeys
   .map(key => window.navigator[key])
   .filter(value => typeof value === 'string')
-  .map(value => value.substr(0, 2));
+  .map(value => value.substr(0, 2))[0];
 
 const i18n = new VueI18n({
-  locale: browserLanguages[0],
+  locale: browserLanguage,
   fallbackLocale: 'en',
-  messages
+  messages: {
+    en: require('./i18n/en.json'),
+    pt: require('./i18n/pt.json')
+  }
 });
 
 export default new Vue({
