@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <p>♥ from the Blook team</p>
+    <p>{{ $t("footerMessage") }}</p>
   </footer>
 </template>
 

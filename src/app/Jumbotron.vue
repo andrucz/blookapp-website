@@ -4,7 +4,7 @@
       <b-img src="../images/blook-logo.png" fluid />
     </template>
     <template slot="lead">
-      Connecting readers.
+      {{ $t("slogan") }}
     </template>
   </b-jumbotron>
 </template>

@@ -2,7 +2,7 @@
   <div id="root">
     <main>
       <b-container>
-        <div class="corner-ribbon top-right sticky blue shadow">Coming soon</div>
+        <div class="corner-ribbon top-right sticky blue shadow">{{ $t("comingSoon") }}</div>
 
         <jumbotron-component></jumbotron-component>
         <features-component></features-component>
