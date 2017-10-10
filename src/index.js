@@ -15,9 +15,6 @@ import 'babel-polyfill';
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
 Vue.use(VueI18n);
-Vue.use(VueAnalytics, {
-  id: 'UA-107837527-1'
-});
 
 const router = new VueRouter({
   mode: 'history',
@@ -29,6 +26,11 @@ const router = new VueRouter({
       }
     }
   ]
+});
+
+Vue.use(VueAnalytics, {
+  id: 'UA-107837527-1',
+  router
 });
 
 const browserLanguagePropertyKeys = ['language', 'browserLanguage', 'userLanguage', 'systemLanguage'];
